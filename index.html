@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
+    <title>Document</title>
+    <style>
+
 body {
     background-color: #121212; /* Dark background for the entire page */
 }
@@ -52,3 +61,38 @@ body {
     text-align: center;
     margin-bottom: 10px; /* Space between numbers and label */
 }
+
+    </style>
+</head>
+<body>
+    
+  <div id="timer">
+      <div class="hours"> 
+          <div id="hours" class="numbers">0</div>hours
+      </div> 
+      <div class="minutes"> 
+          <div id="minutes" class="numbers">0</div>minutes
+      </div> 
+      <div class="seconds"> 
+          <div id="seconds" class="numbers">0</div>seconds
+      </div> 
+  </div>
+
+<script>
+    // Get the current time
+    const startDate = new Date().getTime();
+
+    // countdown
+    let timer = setInterval(function() {
+      const now = new Date().getTime();
+      const elapsed = now - startDate;
+      let totalSeconds = Math.floor(elapsed / 1000);
+      let minutes = Math.floor(totalSeconds / 60);
+      let seconds = totalSeconds % 60;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+    }, 1000); // Update every second
+</script>
+
+</body>
+</html>
