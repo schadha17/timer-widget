@@ -1,95 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
-    <title>Document</title>
-    <style>
 body {
-    background-color: white;
-    margin: 0;
-    padding: 0;
+    background-color: #121212; /* Dark background for the entire page */
 }
 
 #timer {
-  color: #eeeeee;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: 'Lato', sans-serif;
-  font-size: .5em;
-  letter-spacing: 5px;
-  display: flex;
-  justify-content: center;
+    color: #ffffff; /* Light text color for better contrast */
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    font-size: .5em;
+    letter-spacing: 5px;
+    display: flex;
+    justify-content: center;
+    background-color: #333333; /* Dark background for the timer */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the timer */
 }
 
 .days, .hours, .minutes, .seconds {
-  display: inline-block;
-  padding: 10px;
-  width: 80px; /* Adjust block width */
-  height: 60px; /* Adjust block height */
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 15px
+    display: inline-block;
+    padding: 10px;
+    width: 80px; /* Adjust block width */
+    height: 60px; /* Adjust block height */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px; /* Space above each box */
 }
 
 .days {
-  background: #EF2F3C;
+    background: #FF5722; /* Darker shade */
 }
 
 .hours {
-  background: #EF2F3C;
+    background: #FF5722; /* Darker shade */
 }
 
 .minutes {
-  background: #276FBF;
+    background: #00BCD4; /* Darker shade */
 }
 
 .seconds {
-  background: #F0A202;
+    background: #FFC107; /* Darker shade */
 }
 
 .numbers {
-  font-family: 'Roboto', sans-serif;
-  color: black; /* Set the number text to black */
-  font-size: 1.5em;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 10px; /* Space between numbers and label */
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff; /* Light text color for numbers */
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px; /* Space between numbers and label */
 }
-    </style>
-</head>
-<body>
-    
-  <div id="timer">
-      <div class="hours"> 
-          <div id="hours" class="numbers">0</div>hours
-      </div> 
-      <div class="minutes"> 
-          <div id="minutes" class="numbers">0</div>minutes
-      </div> 
-      <div class="seconds"> 
-          <div id="seconds" class="numbers">0</div>seconds
-      </div> 
-  </div>
-
-<script>
-    // Get the current time
-    const startDate = new Date().getTime();
-
-    // countdown
-    let timer = setInterval(function() {
-      const now = new Date().getTime();
-      const elapsed = now - startDate;
-      let totalSeconds = Math.floor(elapsed / 1000);
-      let minutes = Math.floor(totalSeconds / 60);
-      let seconds = totalSeconds % 60;
-      document.getElementById("minutes").innerHTML = minutes;
-      document.getElementById("seconds").innerHTML = seconds;
-    }, 1000); // Update every second
-</script>
-
-</body>
-</html>
