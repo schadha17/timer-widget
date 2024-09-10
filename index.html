@@ -1,0 +1,134 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
+    <title>Document</title>
+    <style>
+body {
+    background-color: white;
+}
+
+#timer {
+  color: #eeeeee;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-size: .5em;
+  letter-spacing: 5px;
+  display: flex; /* Use flexbox for equal height blocks */
+  justify-content: center;
+}
+
+.days, .hours, .minutes, .seconds {
+  display: inline-block;
+  padding: 20px;
+  width: 100px;
+  height: 70px; /* Reduced height for shorter blocks */
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.days {
+  background: #EF2F3C;
+}
+
+.hours {
+  //background: #eeeeee;
+  background: #EF2F3C;
+  //color: #183059;
+}
+
+.minutes {
+  background: #276FBF;
+}
+
+.seconds {
+  background: #F0A202;
+}
+
+.numbers {
+  font-family: 'Roboto', sans-serif;
+  color: black; /* Set the number text to black */
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px; /* Add space between numbers and labels */
+}
+
+.white {
+  position: absolute;
+  background: #eeeeee;
+  height: 85px;
+  width: 75px;
+  left: 30%;
+  top: 2%;
+}
+
+.red {
+  position: absolute;
+  background: #EF2F3C;
+  left: 18%;
+  top: 9%;
+  height: 65px;
+  width: 70px;
+}
+
+.blue {
+  position: absolute;
+  background: #276FBF;
+  height: 80px;
+  width: 80px;
+  left: 60%;
+  top: 5%;
+}
+    </style>
+</head>
+<body>
+    
+<div id="timer">
+    <!-- <div class="days"> <div id="days" class="numbers">0</div>days    </div> -->
+    <div class="hours"> 
+        <div id="hours" class="numbers">0</div>hours
+    </div> 
+    <div class="minutes"> 
+        <div id="minutes" class="numbers">0</div>minutes
+    </div> 
+    <div class="seconds"> 
+        <div id="seconds" class="numbers">0</div>seconds
+    </div> 
+</div>
+
+</body>
+<script>
+    // Get the current time
+    const startDate = new Date().getTime();
+
+    // countdown
+    let timer = setInterval(function() {
+
+      // Get the current time
+      const now = new Date().getTime();
+
+      // Calculate the difference in time from the start time
+      const elapsed = now - startDate;
+
+      // Calculate total seconds passed
+      let totalSeconds = Math.floor(elapsed / 1000);
+
+      // Calculate minutes and seconds
+      let minutes = Math.floor(totalSeconds / 60);
+      let seconds = totalSeconds % 60;
+
+      // Update the DOM elements
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+    }, 1000); // Update every second
+</script>
+</html>
